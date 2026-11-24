@@ -1,7 +1,7 @@
 # Cyva README
 
 <p align="center">
-  <img src="../images/the-one-logo.png" alt="Cyva Logo" width="160"/>
+  <img src="images/the-one-logo.png" alt="Cyva Logo" width="160"/>
 </p>
 
 <h1 align="center">Cyva</h1>
