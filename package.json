@@ -2,7 +2,7 @@
   "name": "cyva",
   "displayName": "Cyva",
   "description": "Cyva Programming Language's Official Extension",
-  "version": "1.1",
+  "version": "1.1.0",
   "publisher": "Mrmaeazadi",
   "main": "./out/extension.js",
   "engines": {
