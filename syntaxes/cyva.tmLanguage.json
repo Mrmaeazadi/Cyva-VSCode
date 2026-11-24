@@ -1,0 +1,384 @@
+
+{
+  "scopeName": "source.cyva",
+  
+  
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#interpolated-strings" },
+    { "include": "#strings" },
+    { "include": "#namespace-declaration" },
+    { "include": "#type-declaration" },
+    { "include": "#constructor-declaration" },
+    { "include": "#function-declaration" },
+    { "include": "#property-declaration" },
+    { "include": "#variable-declaration" },
+    { "include": "#parameter-declaration" },
+    { "include": "#keywords" },
+    { "include": "#constants" },
+    { "include": "#types" },
+    { "include": "#numbers" },
+    { "include": "#function-calls" },
+    { "include": "#operators" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.cyva",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.cyva",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+
+    "interpolated-strings": {
+      "name": "string.quoted.double.interpolated.cyva",
+      "begin": "\\$\"",
+      "end": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.cyva"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.cyva"
+        }
+      },
+      "patterns": [
+        {
+          "name": "constant.character.escape.cyva",
+          "match": "\\\\."
+        },
+        {
+          "include": "#interpolation"
+        }
+      ]
+    },
+
+    "interpolation": {
+      "begin": "\\{",
+      "end": "\\}",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.cyva"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.cyva"
+        }
+      },
+      "patterns": [
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#keywords" },
+        { "include": "#constants" },
+        { "include": "#types" },
+        { "include": "#numbers" },
+        { "include": "#function-calls" },
+        { "include": "#operators" }
+      ]
+    },
+
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.cyva",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cyva",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.cyva",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cyva",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+
+    "class-declarations": {
+      "patterns": [
+        {
+          "match": "\\b(class|struct|enum|interface)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": {
+              "name": "storage.type.cyva"
+            },
+            "2": {
+              "name": "entity.name.type.class.cyva"
+            }
+          }
+        },
+        {
+          "match": "\\bnamespace\\s+([A-Za-z_][A-Za-z0-9_.]*)",
+          "captures": {
+            "1": {
+              "name": "entity.name.namespace.cyva"
+            }
+          }
+        }
+      ]
+    },
+
+	"function-calls": {
+	"patterns": [
+		{
+		"name": "entity.name.function.cyva",
+		"match": "\\b(Print|PrintLine)(?=\\s*(?:\\(|\\{|\"))"
+		},
+		{
+		"match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+		"captures": {
+			"1": {
+			"name": "entity.name.function.cyva"
+			}
+		}
+		},
+		{
+		"match": "\\.([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+		"captures": {
+			"1": {
+			"name": "entity.name.function.member.cyva"
+			}
+		}
+		}
+	]
+	},
+
+    "keywords": {
+      "patterns": [
+        {
+          "name": "storage.modifier.cyva",
+          "match": "\\b(public|private|protected|internal|static|readonly|const|abstract|virtual|override|sealed|partial|async|extern)\\b"
+        },
+        {
+          "name": "keyword.control.cyva",
+          "match": "\\b(if|else|while|do|for|foreach|in|switch|case|default|break|continue|return|try|catch|finally|throw)\\b"
+        },
+        {
+          "name": "keyword.declaration.cyva",
+          "match": "\\b(using|namespace|class|struct|enum|interface|new|this|base)\\b"
+        },
+        {
+          "name": "storage.type.cyva",
+          "match": "\\b(var|void|int|string|bool|float|double|long|short|byte|char|decimal|object|list|List|Dictionary|Exception)\\b"
+        }
+      ]
+    },
+
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.cyva",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "constant.language.null.cyva",
+          "match": "\\b(null)\\b"
+        }
+      ]
+    },
+
+    "types": {
+      "patterns": [
+        {
+          "name": "support.type.cyva",
+          "match": "\\b(Console|File|Directory|Path|Exception|TcpClient|TcpListener|NetworkStream|Thread|String|Int32|Boolean)\\b"
+        }
+      ]
+    },
+
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.cyva",
+          "match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?[fFdDmM]?\\b"
+        },
+        {
+          "name": "constant.numeric.integer.cyva",
+          "match": "\\b\\d+([eE][+-]?\\d+)?[uUlL]*\\b"
+        }
+      ]
+    },
+
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.cyva",
+          "match": "(\\+=|-=|\\*=|/=|%=|=)"
+        },
+        {
+          "name": "keyword.operator.comparison.cyva",
+          "match": "(==|!=|<=|>=|<|>)"
+        },
+        {
+          "name": "keyword.operator.logical.cyva",
+          "match": "(&&|\\|\\||!)"
+        },
+        {
+          "name": "keyword.operator.arithmetic.cyva",
+          "match": "(\\+\\+|--|\\+|-|\\*|/|%|\\^)"
+        },
+        {
+          "name": "keyword.operator.bitwise.cyva",
+          "match": "(&|\\||~|<<|>>)"
+        }
+      ]
+    },
+
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.section.block.begin.cyva",
+          "match": "\\{"
+        },
+        {
+          "name": "punctuation.section.block.end.cyva",
+          "match": "\\}"
+        },
+        {
+          "name": "punctuation.section.brackets.cyva",
+          "match": "[\\[\\]()]" 
+        },
+        {
+          "name": "punctuation.separator.cyva",
+          "match": "[,;.]"
+        },
+        {
+          "name": "punctuation.accessor.cyva",
+          "match": "\\."
+        }
+      ]
+    },
+
+	"namespace-declaration": {
+		"patterns": [
+		{
+			"match": "\\bnamespace\\s+([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)*)",
+			"captures": {
+			"0": {
+				"name": "meta.namespace.declaration.cyva"
+			},
+			"1": {
+				"name": "entity.name.namespace.cyva"
+			}
+			}
+		}
+		]
+	},
+
+	"type-declaration": {
+		"patterns": [
+		{
+			"match": "\\b(class|struct|enum|interface)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+			"captures": {
+			"1": {
+				"name": "storage.type.cyva"
+			},
+			"2": {
+				"name": "entity.name.type.cyva"
+			}
+			}
+		}
+		]
+	},
+
+	"constructor-declaration": {
+		"patterns": [
+		{
+			"match": "(?m)^\\s*(?:(?:public|private|protected|internal)\\s+)*([A-Z][A-Za-z0-9_]*)\\s*(?=\\([^)]*\\)\\s*\\{)",
+			"captures": {
+			"1": {
+				"name": "entity.name.function.constructor.cyva"
+			}
+			}
+		}
+		]
+	},
+
+	"property-declaration": {
+		"patterns": [
+		{
+			"match": "(?m)^\\s*((?:(?:public|private|protected|internal|static|readonly|const)\\s+)+)([A-Za-z_][A-Za-z0-9_<>,.?\\[\\]]*)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(?=$|[=;])",
+			"captures": {
+			"1": {
+				"name": "storage.modifier.cyva"
+			},
+			"2": {
+				"name": "storage.type.cyva"
+			},
+			"3": {
+				"name": "variable.other.property.cyva"
+			}
+			}
+		}
+		]
+	},
+
+	"variable-declaration": {
+		"patterns": [
+		{
+			"match": "\\b(var|int|string|bool|float|double|long|short|byte|char|decimal|object|list)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(?==|;|,|$)",
+			"captures": {
+			"1": {
+				"name": "storage.type.cyva"
+			},
+			"2": {
+				"name": "variable.other.readwrite.cyva"
+			}
+			}
+		}
+		]
+	},
+
+	"parameter-declaration": {
+		"patterns": [
+		{
+			"match": "(?<=\\()\\s*([A-Za-z_][A-Za-z0-9_<>,.?\\[\\]]*)\\s+([A-Za-z_][A-Za-z0-9_]*)(?=\\s*[,)] )",
+			"captures": {
+			"1": {
+				"name": "storage.type.cyva"
+			},
+			"2": {
+				"name": "variable.parameter.cyva"
+			}
+			}
+		}
+		]
+	},
+
+	"function-declaration": {
+		"patterns": [
+		{
+			"match": "\\b(void|int|string|bool|float|double|long|short|byte|char|decimal|var)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+			"captures": {
+			"1": {
+				"name": "storage.type.cyva"
+			},
+			"2": {
+				"name": "entity.name.function.cyva"
+			}
+			}
+		}
+		]
+	}
+  }
+}

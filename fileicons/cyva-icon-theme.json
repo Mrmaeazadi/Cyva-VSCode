@@ -1,0 +1,11 @@
+
+{
+  "iconDefinitions": {
+    "_cyva": {
+      "iconPath": "../icons/the-one-logo.png"
+    }
+  },
+  "fileExtensions": {
+    "cyva": "_cyva"
+  }
+}

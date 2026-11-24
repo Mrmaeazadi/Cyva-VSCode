@@ -1,0 +1,304 @@
+
+{
+  "Namespace": {
+    "prefix": ["namespace", "ns"],
+    "body": [
+      "namespace ${1:MyNamespace};",
+      "",
+      "$0"
+    ],
+    "description": "Create a Cyva namespace"
+  },
+
+  "Using Namespace": {
+    "prefix": ["using", "use"],
+    "body": [
+      "using ${1:MyNamespace};"
+    ],
+    "description": "Import a namespace"
+  },
+
+  "Class": {
+    "prefix": ["class", "cls"],
+    "body": [
+      "public class ${1:MyClass}",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a public class"
+  },
+
+  "Struct": {
+    "prefix": "struct",
+    "body": [
+      "public struct ${1:MyStruct}",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a struct"
+  },
+
+  "Interface": {
+    "prefix": "interface",
+    "body": [
+      "public interface ${1:IMyInterface}",
+      "{",
+      "    ${2:void} ${3:Execute}(${4});",
+      "}"
+    ],
+    "description": "Create an interface"
+  },
+
+  "Enum": {
+    "prefix": "enum",
+    "body": [
+      "public enum ${1:MyEnum}",
+      "{",
+      "    ${2:First},",
+      "    ${3:Second},",
+      "    ${4:Third}",
+      "}"
+    ],
+    "description": "Create an enum"
+  },
+
+  "Constructor": {
+    "prefix": ["ctor", "constructor"],
+    "body": [
+      "public ${1:MyClass}(${2})",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a constructor"
+  },
+
+  "Method": {
+    "prefix": ["method", "meth"],
+    "body": [
+      "public ${1:void} ${2:MyMethod}(${3})",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a public method"
+  },
+
+  "Static Method": {
+    "prefix": "staticmethod",
+    "body": [
+      "public static ${1:void} ${2:MyMethod}(${3})",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a static method"
+  },
+
+  "Property": {
+    "prefix": ["prop", "property"],
+    "body": [
+      "public ${1:string} ${2:Name}"
+    ],
+    "description": "Create a public property"
+  },
+
+  "Variable": {
+    "prefix": ["var", "variable"],
+    "body": [
+      "var ${1:name} = ${2:value}"
+    ],
+    "description": "Create a variable"
+  },
+
+  "If": {
+    "prefix": "if",
+    "body": [
+      "if (${1:condition})",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create an if statement"
+  },
+
+  "If Else": {
+    "prefix": "ifelse",
+    "body": [
+      "if (${1:condition})",
+      "{",
+      "    ${2}",
+      "}",
+      "else",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create an if else statement"
+  },
+
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (var ${1:i} = 0; ${1:i} < ${2:count}; ${1:i} = ${1:i} + 1)",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a for loop"
+  },
+
+  "Foreach Loop": {
+    "prefix": "foreach",
+    "body": [
+      "foreach (var ${1:item} in ${2:items})",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a foreach loop"
+  },
+
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while (${1:condition})",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a while loop"
+  },
+
+  "Switch": {
+    "prefix": "switch",
+    "body": [
+      "switch (${1:value})",
+      "{",
+      "    case ${2:0}:",
+      "        $3",
+      "        break",
+      "    default:",
+      "        $0",
+      "}"
+    ],
+    "description": "Create a switch statement"
+  },
+
+  "Try Catch Finally": {
+    "prefix": ["trycatchfinally"],
+    "body": [
+      "try",
+      "{",
+      "    ${1}",
+      "}",
+      "catch (Exception ${2:ex})",
+      "{",
+      "    ${3}",
+      "}",
+      "finally",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create exception handling"
+  },
+
+  "Try Catch":
+  {
+    "prefix": ["trycatch", "try"],
+    "body":[
+        "try",
+        "{",
+        "    ${1}",
+        "}",
+        "catch (Exception ${2:ex})",
+        "{",
+        "    ${3}",
+        "}"
+    ],
+    "description": "Create a try-catch exception / error handling"
+  },
+
+  "PrintLine": {
+    "prefix": ["pl", "println"],
+    "body": [
+      "PrintLine(${1:\"Hello Cyva!\"})"
+    ],
+    "description": "Print a line"
+  },
+
+  "Print": {
+    "prefix": ["print", "p"],
+    "body": [
+      "Print(${1:\"Hello Cyva!\"})"
+    ],
+    "description": "Print without a newline"
+  },
+
+  "Function": {
+    "prefix": "func",
+    "body": [
+      "${1:int} ${2:MyFunction}(${3})",
+      "{",
+      "    $0",
+      "}"
+    ],
+    "description": "Create a top-level function"
+  },
+
+  "Return": {
+    "prefix": "return",
+    "body": [
+      "return ${1:value}"
+    ],
+    "description": "Return a value"
+  },
+
+  "Interpolated String": {
+    "prefix": ["str", "interpolated"],
+    "body": [
+      "$\"${1:Hello} {${2:name}}\""
+    ],
+    "description": "Create an interpolated string"
+  },
+
+  "List": {
+    "prefix": "list",
+    "body": [
+      "var ${1:items} = [${2}]"
+    ],
+    "description": "Create a list"
+  },
+
+  "Dictionary": {
+    "prefix": "dict",
+    "body": [
+      "var ${1:data} = {\"${2:key}\": ${3:value}}"
+    ],
+    "description": "Create a dictionary"
+  },
+
+  "Main Entry": {
+    "prefix": ["main", "entry"],
+    "body": [
+      "PrintLine(\"########## CYVA APPLICATION ##########\")",
+      "",
+      "$0",
+      "",
+      "PrintLine(\"Application finished.\")"
+    ],
+    "description": "Create a Cyva application entry section"
+  },
+
+  "Comment Region": {
+    "prefix": "region",
+    "body": [
+      "// ---------- ${1:SECTION} ----------",
+      "$0"
+    ],
+    "description": "Create a section comment"
+  }
+}

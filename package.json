@@ -1,0 +1,81 @@
+{
+  "name": "cyva",
+  "displayName": "Cyva",
+  "description": "Cyva Programming Language Official Extension",
+  "version": "1.0.0",
+  "publisher": "Mr_maeazadi",
+  "main": "./out/extension.js",
+  "engines": {
+    "vscode": "^1.146.0"
+  },
+  
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {"type": "git", "url": ""},
+  "icon": "./icons/the-one-logo.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cyva.runCurrentFile",
+        "title": "Run Cyva File",
+        "icon": "$(play)"
+      }
+    ],
+    "menus": {
+        "editor/title": [
+            {
+                "command": "cyva.runCurrentFile",
+                "when": "editorLangId == cyva",
+                "group": "navigation"
+            }
+        ]
+    },
+    "snippets": [
+      {
+        "language": "cyva",
+        "path": "./snippets/cyva.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "cyva-file-icons",
+        "label": "Cyva File Icons",
+        "path": "./fileicons/cyva-icon-theme.json"
+      }
+    ],
+    "languages": [
+      {
+        "id": "cyva",
+        "aliases": [
+          "Cyva",
+          "cyva"
+        ],
+        "extensions": [
+          ".cyva"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "dark": "./icons/the-one-logo.png",
+          "light": "./icons/the-one-logo.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cyva",
+        "scopeName": "source.cyva",
+        "path": "./syntaxes/cyva.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.7",
+    "@types/vscode": "^1.146.0",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+      "compile": "tsc -p ./",
+      "watch": "tsc -watch -p ./"
+  }
+}
