@@ -76,7 +76,7 @@
   },
 
   "Method": {
-    "prefix": ["method", "meth"],
+    "prefix": ["method", "meth", "fun", "function"],
     "body": [
       "public ${1:void} ${2:MyMethod}(${3})",
       "{",
@@ -284,11 +284,10 @@
   "Main Entry": {
     "prefix": ["main", "entry"],
     "body": [
-      "PrintLine(\"########## CYVA APPLICATION ##########\")",
-      "",
-      "$0",
-      "",
-      "PrintLine(\"Application finished.\")"
+      "void Main()",
+      "{",
+      "    $0",
+      "}"
     ],
     "description": "Create a Cyva application entry section"
   },
@@ -296,7 +295,16 @@
   "Comment Region": {
     "prefix": "region",
     "body": [
-      "// ---------- ${1:SECTION} ----------",
+      "// <=---------- ${1:SECTION} ----------=>",
+      "$0"
+    ],
+    "description": "Create a section comment"
+  },
+
+  "Comment End-Region": {
+    "prefix": "endregion",
+    "body": [
+      "// <=---------- /${1:SECTION} ----------=>",
       "$0"
     ],
     "description": "Create a section comment"

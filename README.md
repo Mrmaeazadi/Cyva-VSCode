@@ -1,65 +1,121 @@
-# cyva README
+# Cyva README
 
-This is the README for your extension "cyva". After writing up a brief description, we recommend including the following sections.
+<p align="center">
+  <img src="../images/the-one-logo.png" alt="Cyva Logo" width="160"/>
+</p>
 
-## Features
+<h1 align="center">Cyva</h1>
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+<p align="center">
+  **Official Language Support for Cyva**
+  <br/>
+  Syntax Highlighting • Language Configuration • IntelliSense
+</p>
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-Cyva-90E80C?style=for-the-badge" alt="Cyva"/>
+  <img src="https://img.shields.io/badge/Editor-VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode" alt="VS Code"/>
+  <img src="https://img.shields.io/badge/Status-Development-orange?style=for-the-badge" alt="Status"/>
+</p>
 
 ---
 
-## Working with Markdown
+## Overview
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+**Cyva** is a modern, general-purpose programming language designed with a focus on performance, simplicity, and flexibility.
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+This extension provides official Cyva language support for **Visual Studio Code**, making it easier to write, read, and develop Cyva applications directly inside your favorite code editor.
 
-## For more information
+Whether you're building applications, experimenting with programming concepts, or developing complex projects, this extension aims to provide a smooth and productive coding experience.
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+## Features
 
-**Enjoy!**
+- **Syntax Highlighting** – Colorized Cyva keywords, types, operators, strings, comments, and other language elements.
+- **Language Configuration** – Proper bracket matching, auto-closing pairs, comment toggling, and code editing behavior.
+- **IntelliSense** – Intelligent code completion and suggestions.
+- **Diagnostics** – Highlighting syntax errors and reporting problems.
+- **Code Navigation** – Navigate through Cyva source files more easily.
+
+*Some features may depend on the installed Cyva Language Server and compiler version.*
+
+## Installation
+
+### From Visual Studio Code Marketplace
+
+1. Open Visual Studio Code.
+2. Navigate to the Extensions panel (`Ctrl + Shift + X`).
+3. Search for **Cyva**.
+4. Select the official Cyva extension.
+5. Click **Install**.
+
+### Manual Installation
+
+1. Download the `.vsix` package.
+2. Open Visual Studio Code.
+3. Press `Ctrl + Shift + P`.
+4. Search for `Extensions: Install from VSIX...`.
+5. Select the downloaded package.
+
+## Usage
+
+After installing the extension, open or create a file with the `.cyva` extension.
+
+```cyva
+Print "Hello World!"
+```
+
+The extension will automatically recognize `.cyva` files and apply the available language features.
+
+## File Extension
+
+| Property | Value |
+|---|---|
+| Language | Cyva |
+| File Extension | `.cyva` |
+| Editor | Visual Studio Code |
+| Extension Type | Language Support |
+
+## Requirements
+
+- Visual Studio Code
+- Cyva Compiler (for compiling and running Cyva programs)
+- Cyva Language Server (if advanced IntelliSense features are enabled)
+
+## Project Structure
+
+The extension is designed to provide a foundation for a complete Cyva development environment inside Visual Studio Code.
+
+Future improvements may include:
+
+- Advanced IntelliSense
+- Go to Definition
+- Find All References
+- Real-time diagnostics
+- Code formatting
+- Signature Help
+- Hover Documentation
+- Debugging support
+
+## Links
+
+- **Cyva Official Website:** https://cyva.ir
+- **GitHub:** https://github.com/Mrmaeazadi/Cyva-VSCode
+- **Visual Studio Code:** https://marketplace.visualstudio.com/items?itemName=Mrmaeazadi.cyva
+
+## Contributing
+
+Contributions, bug reports, and feature requests are welcome.
+
+If you find a problem or have an idea to improve Cyva language support, feel free to open an issue or submit a pull request.
+
+## License
+
+Please refer to the repository's `LICENSE` file for licensing information.
+
+---
+
+<p align="center">
+  **Made with ❤️ for the Cyva programming language.**
+  <br/>
+  <b>Cyva — Code Beyond Limits.</b>
+</p>
